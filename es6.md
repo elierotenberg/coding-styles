@@ -1,4 +1,4 @@
-# Javascript Coding Style
+# ES6 Coding Style
 
 ## Casing
 
