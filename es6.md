@@ -159,7 +159,7 @@ const [a, b, c] = [1, 2, 3];
 
 ## Functions
 
-- Regular (named and hoisted) unction declarations SHOULD be used instead of anonymous functions by default.
+- Regular (named and hoisted) function declarations SHOULD be used instead of anonymous functions by default.
 
 - When using anonymous functions, arrow function SHOULD be used instead of anonymous `function`.
 
