@@ -1,5 +1,17 @@
 # ES6 Coding Style
 
+## Evil constructs
+
+- The following constructs MUST NOT be used, for both performance and critical security reasons.
+
+  - `eval` and similar `new Function`, `setTimeout(string)`, `setInterval(string)`, `setImmediate(string)` (however `setTimeout(function)` etc is perfectly fine).
+
+  - `with`,
+
+  - `alert` and  `confirm`,
+
+  - primitive type wrapper constructors (`new Number`, `new String`, `new Boolean`, `new Array`, `new Object`, `new RegExp`).
+
 ## Casing
 
 - Regular identifiers MUST be formatted `likeThis`.
