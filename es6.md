@@ -10,7 +10,7 @@
 
   - `alert` and  `confirm`,
 
-  - primitive type wrapper constructors (`new Number`, `new String`, `new Boolean`, `new Array`, `new Object`, `new RegExp`).
+  - primitive type wrapper constructors (`new Number`, `new String`, `new Boolean`, `new Array`, `new Object`).
 
 ## Casing
 
