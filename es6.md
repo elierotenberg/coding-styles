@@ -6,13 +6,13 @@ The recommended transpiling tool for ES6 to ES5 is [babel](http://babeljs.io/). 
 
 The recommended text editor is Sublime Text using [babel-sublime](https://github.com/babel/babel-sublime). Other editors are acceptable, as long as they have proper ES6 and optionally, JSX support.
 
-Instructions denoted as MUST/MUST NOT are *mandatory*. Instructions denoted as SHOULD/SHOULD NOT are *preferred*.
+Instructions denoted as **must**/**must not** are *mandatory*. Instructions denoted as **should**/**should not** are *preferred*.
 
 Rationale for each instruction is *italic*. Some instructions are under the *pure convention* rationale: it means that when several, practically equivalent (besides bikeshedding) options are available, we pick one and stick to it to enforce consistency in the codebase.
 
 ## Evil constructs
 
-- The following constructs MUST NOT be used, for both performance and critical security reasons.
+- The following constructs **must not** be used, for both performance and critical security reasons.
 
   - `eval` and similar `new Function`, `setTimeout(string)`, `setInterval(string)`, `setImmediate(string)` (however `setTimeout(function)` etc is perfectly fine).
 
@@ -34,19 +34,19 @@ Rationale for each instruction is *italic*. Some instructions are under the *pur
 
 ## Strict mode
 
-- Strict mode MUST be used. However, it SHOULD be inserted at build time, not in the original source.
+- Strict mode **must** be used. However, it **should** be inserted at build time, not in the original source.
 
 ## Casing
 
-- Regular identifiers MUST be formatted `likeThis`.
+- Regular identifiers **must** be formatted `likeThis`.
 
-- Only functions with constructor semantics, classes, or namespaces MUST start with an Uppercase letter (PascalCase), `LikeThis`.
+- Only functions with constructor semantics, classes, or namespaces **must** start with an Uppercase letter (PascalCase), `LikeThis`.
 
-- Macros (to be processed at build time) MUST be formatted `__LIKE_THIS__`.
+- Macros (to be processed at build time) **must** be formatted `__LIKE_THIS__`.
 
-- Magic values (eg. numerical constants) MUST be formatted `LIKE_THIS`.
+- Magic values (eg. numerical constants) **must** be formatted `LIKE_THIS`.
 
-- Private properties and methods MUST be formatted `_likeThis`.
+- Private properties and methods **must** be formatted `_likeThis`.
 
 ```js
 const regularIdentifier;
@@ -72,7 +72,7 @@ const {
 
 ## Objects
 
-- Regular objects MUST be created using the Object syntax literal.
+- Regular objects **must** be created using the Object syntax literal.
 
 ```js
 // bad
@@ -83,7 +83,7 @@ const obj = Object.create(Object.prototype);
 const obj = {};
 ```
 
-- Object literals keys MUST be camelCase (this doesn't apply to programmatically generated keys).
+- Object literals keys **must** be camelCase (this doesn't apply to programmatically generated keys).
 
 ```js
 // bad
@@ -102,13 +102,13 @@ const obj = {
 };
 ```
 
-- An object declaration MUST have spaces after each `{` and before each `}`.
+- An object declaration **must** have spaces after each `{` and before each `}`.
 
-- If the declaration is multiline, each line MUST end with a comma, including the last one.
+- If the declaration is multiline, each line **must** end with a comma, including the last one.
 
-- If the declaration is not multiline, the last value MUST NOT end with a comma.
+- If the declaration is not multiline, the last value **must not** end with a comma.
 
-- In an object declaration, there MUST NOT be space before each colon but at least one after each colon.
+- In an object declaration, there **must not** be space before each colon but at least one after each colon.
 
 ```js
 // bad
@@ -132,7 +132,7 @@ const c = { k1: v2 };
 
 ## Arrays
 
-- Arrays MUST be created using the Array syntax literal.
+- Arrays **must** be created using the Array syntax literal.
 
 ```js
 // bad
@@ -144,9 +144,9 @@ const a = [];
 
 ## Strings
 
-- Static strings MUST be declared using single quotes or backticks.
+- Static strings **must** be declared using single quotes or backticks.
 
-- Dynamic strings MUST be declared using ES6 template literals (backticks). Dynamic strings MUST NOT be declared using single- or double-quotes.
+- Dynamic strings **must** be declared using ES6 template literals (backticks). Dynamic strings **must not** be declared using single- or double-quotes.
 
 - Never use double-quotes.
 
@@ -168,11 +168,11 @@ const c = 'foobar';
 
 ## var, let, const
 
-- `var` MUST NOT be used.
+- `var` **must not** be used.
 
-- `const` SHOULD be used dy default. If you really need to use `let`, its acceptable, but its most often a sign that you should refactor.
+- `const` **should** be used dy default. If you really need to use `let`, its acceptable, but its most often a sign that you should refactor.
 
-- `const` (or `let`) MUST be used exactly once per variable declaration.
+- `const` (or `let`) **must** be used exactly once per variable declaration.
 
 ```js
 // bad
@@ -191,9 +191,9 @@ const [a, b, c] = [1, 2, 3];
 
 ## Functions
 
-- Regular (named and hoisted) function declarations SHOULD be used instead of anonymous functions by default.
+- Regular (named and hoisted) function declarations **should** be used instead of anonymous functions by default.
 
-- `new` MUST NOT be used with functions which are not ES6 classes.
+- `new` **must not** be used with functions which are not ES6 classes.
 
 ```
 // bad
@@ -209,9 +209,9 @@ class A {
 const a = new A();
 ```
 
-- When using anonymous functions, arrow function SHOULD be used instead of anonymous `function`.
+- When using anonymous functions, arrow function **should** be used instead of anonymous `function`.
 
-- When using 'anonymous' `function`, a name MUST be given.
+- When using 'anonymous' `function`, a name **must** be given.
 
 ```js
 const a = [1, 2, 3];
@@ -232,7 +232,7 @@ a.reduce(sum, 0);
 a.reduce((x, y) => x + y, 0);
 ```
 
-- Parens MUST be used for arrow functions parameters, even when there is only one parameter.
+- Parens **must** be used for arrow functions parameters, even when there is only one parameter.
 
 ```js
 // bad
@@ -242,7 +242,7 @@ const triple = x => 3*x;
 const triple = (x) => 3*x;
 ```
 
-- Arrow functions SHOULD be used instead of `Function.prototype.bind` when applicable. `self` / `_this` / `that` trickery MUST NOT be used.
+- Arrow functions **should** be used instead of `Function.prototype.bind` when applicable. `self` / `_this` / `that` trickery **must not** be used.
 
 ```js
 function method(...params) {
@@ -270,15 +270,15 @@ const scope = (fn, thisArg) => (...params) => fn.apply(thisArg, ...params);
 
 ## Function parameters
 
-- A parameter MUST NOT be named `arguments`.
+- A parameter **must not** be named `arguments`.
 
-- Parameters SHOULD BE explicitly typechecked in a `__DEV__` block. They CAN be documented in addition.
+- Parameters **should** BE explicitly typechecked in a `__DEV__` block. They CAN be documented in addition.
 
-- ES6 default parameter value SHOULD be used when applicable.
+- ES6 default parameter value **should** be used when applicable.
 
-- Destructuring parameter syntax SHOULD be used when applicable.
+- Destructuring parameter syntax **should** be used when applicable.
 
-- Explicit variadic expansion SHOULD be used over ES6 rest syntax. If you really need true dynamic variadic functions, ES6 rest syntax MUST be used, not `arguments` inspection.
+- Explicit variadic expansion **should** be used over ES6 rest syntax. If you really need true dynamic variadic functions, ES6 rest syntax **must** be used, not `arguments` inspection.
 
 ```js
 // bad
@@ -301,7 +301,7 @@ function sum(...rest) {
 }
 ```
 
-- Object parameters (with default values) SHOULD be used for options parameters. Boolean parameters MUST NOT be used.
+- Object parameters (with default values) **should** be used for options parameters. Boolean parameters **must not** be used.
 
 ```
 // bad
@@ -318,9 +318,9 @@ function divide(a, b, { shouldCheckForZero = false } = {}) {
 
 ## Properties
 
-- Dot/subscript notation MUST be used consistently.
+- Dot/subscript notation **must** be used consistently.
 
-- Dot notation SHOULD be used when possible.
+- Dot notation **should** be used when possible.
 
 ```js
 // bad
@@ -340,7 +340,7 @@ t.y = 4;
 
 ## Operators
 
-- Short-hand operators `+=`-like and `++`-like operators MUST NOT be used. Also, consider refactoring to get rid of the underlying `let`.
+- Short-hand operators `+=`-like and `++`-like operators **must not** be used. Also, consider refactoring to get rid of the underlying `let`.
 
 ```js
 let n = 0;
@@ -352,9 +352,9 @@ n++;
 n = n + 1;
 ```
 
-- Non-strict comparison operators `==` or `!=` MUST NOT be used. Strict comparison operators `===` or `!==` MUST be used instead.
+- Non-strict comparison operators `==` or `!=` **must not** be used. Strict comparison operators `===` or `!==` **must** be used instead.
 
-- Boolean force-casting `!!expr` SHOULD NOT be used. `expr` SHOULD BE used directly, unless you specifically care about leaking values in a function call or a return value.
+- Boolean force-casting `!!expr` **should not** be used. `expr` **should** BE used directly, unless you specifically care about leaking values in a function call or a return value.
 
 ```js
 // bad
@@ -375,9 +375,9 @@ someUntrustedFunction(!!expr);
 
 ## Comments
 
-- `/* ... */`-style MUST be used for non-jsdoc multiline comments.
+- `/* ... */`-style **must** be used for non-jsdoc multiline comments.
 
-- `/** ... */`-style MUST be used for jsdoc comments.
+- `/** ... */`-style **must** be used for jsdoc comments.
 
 - Be very careful when using trailing `//`. For single-line comments, comment on the previous line of whatever you're commenting.
 
@@ -385,9 +385,9 @@ someUntrustedFunction(!!expr);
 
 ## Whitespace
 
-- Tab characters MUST not be used. Ever. Tabs are evil. Don't use them.
+- Tab characters **must not** be used. Ever. Tabs are evil. Don't use them.
 
-- Soft-spacing 2-characters MUST be used.
+- Soft-spacing 2-characters **must** be used.
 
 ```js
 // bad
@@ -401,7 +401,7 @@ if(true) {
 }
 ```
 
-- 1 space MUST be used before the leading brace `{`.
+- 1 space **must** be used before the leading brace `{`.
 
 ```js
 // bad
@@ -415,7 +415,7 @@ if(true) {
 }
 ```
 
-- 1 space MUST be used before the ending brace `}` in single-line object literals or function declaration.
+- 1 space **must** be used before the ending brace `}` in single-line object literals or function declaration.
 
 ```js
 // bad
@@ -427,7 +427,7 @@ function answer() { return 42; }
 const a = { a: 42 };
 ```
 
-- Space MUST NOT be used before the leading bracket `[` or the ending bracket `]` in single-line array literals.
+- Space **must not** be used before the leading bracket `[` or the ending bracket `]` in single-line array literals.
 
 ```js
 // bad
@@ -437,7 +437,7 @@ const a = [ 1, 2 ];
 const a = [1, 2];
 ```
 
-- Space MUST NOT be used before the leading paren `(`.
+- Space **must not** be used before the leading paren `(`.
 
 ```js
 // bad
@@ -451,7 +451,7 @@ if(true) {
 }
 ```
 
-- Space MUST NOT be used between `function` and `*` when defining generator. Space MUST BE used between `*` and the function name when defining named generators.
+- Space **must not** be used between `function` and `*` when defining generator. Space **must** BE used between `*` and the function name when defining named generators.
 
 ```js
 // bad
@@ -465,7 +465,7 @@ function* g() {
 }
 ```
 
-- Space MUST NOT be used between `*` and the generator name when using the shorthand generator method syntax.
+- Space **must not** be used between `*` and the generator name when using the shorthand generator method syntax.
 
 ```js
 // bad
@@ -483,7 +483,7 @@ const a = {
 };
 ```
 
-- Spaces MUST BE used between infix operators.
+- Spaces **must** BE used between infix operators.
 
 ```js
 // bad
@@ -494,9 +494,9 @@ const a= b + c;
 const a = b + c;
 ```
 
-- Files MUST end with a single newline character.
+- Files **must** end with a single newline character.
 
-- Leading dot and proper indentation MUST be used for method chaining.
+- Leading dot and proper indentation **must** be used for method chaining.
 
 ```js
 // bad
@@ -519,7 +519,7 @@ a.then(...)
 
 ## Blocks
 
-- Braces MUST BE used for blocks, even single-statement blocks. Only exception is 1-expression arrow functions.
+- Braces **must** BE used for blocks, even single-statement blocks. Only exception is 1-expression arrow functions.
 
 ```js
 // bad
@@ -543,7 +543,7 @@ const id = (x) => {
 
 ## Commas
 
-- Trailing commas MUST be used for multiline literals, and MUST NOT be used for single-line literals.
+- Trailing commas **must** be used for multiline literals, and **must not** be used for single-line literals.
 
 ```js
 // bad
@@ -565,7 +565,7 @@ const a = {
 
 ## Semicolons
 
-- Trailing semicolons MUST be used, even when they are not strictly required.
+- Trailing semicolons **must** be used, even when they are not strictly required.
 
 ```js
 // bad
@@ -580,9 +580,48 @@ const id = (x) => x;
 
 *Easier to maintain; one can add or remove statements without having to maintain the semicolon. Also procudes cleaner git diffs. Avoid subtle bugs.*
 
+## if/else construct
+
+- `if`/`else if`/`else` **must** be preceded by a newline.
+```js
+// bad
+if(...) {
+  ...
+} else if(...) {
+  ...
+} else {
+  ...
+}
+
+// good
+if(...) {
+  ...
+}
+else if {
+  ...
+}
+else {
+  ...
+}
+```
+
+*Easier to read and refactor.*
+
+# switch construct
+
+- `switch` construct **should not** be used unless you are absolutely confident you are optimizing a super hot function which your JS engine can't optimize by itself. `if/else if/else` **should** be used instead.
+
+*When two constructs are equivalent, pick one and stick to it. Also, missing `break` bugs are very tedious.*
+
+# for in, for of
+
+- `for in` and `for of` **should not** be used unless you are absolutely confident you are optimizing a super hot function which your JS engine can't optimize by itself. `forEach/map` **should** be used instead.
+
+*When two constructs are equivalent, pick one and stick to it. Also, missing `hasOwnProperty` check bugs are very tedious. `for` loops are very rarely needed in ES6 code where `forEach/map` and arrow functions can achieve almost every conceivable looping pattern and are easier to reason about. In edge cases where optimization is actually needed, it can be helpful though.*
+
 ## Method short notation
 
-- ES6 method short notation SHOULD be used when applicable.
+- ES6 method short notation **should** be used when applicable.
 
 ```js
 // bad
@@ -604,7 +643,7 @@ const a =  {
 
 ## ES6 modules
 
-- ES6 modules MUST be used, `require`-style module MUST NOT be used. Destructuring assignment SHOULD be used when applicable.
+- ES6 modules **must** be used, `require`-style module **must not** be used. Destructuring assignment **should** be used when applicable.
 
 ```js
 // bad
@@ -620,7 +659,7 @@ import { func1, func2 } from 'moduleA';
 
 ## undefined
 
-- `undefined` MUST NOT be used, `void 0` MUST be used instead.
+- `undefined` **must not** be used, `void 0` **must** be used instead.
 
 ```js
 // bad
@@ -638,15 +677,15 @@ if(x === void 0) {
 
 ## Object extension and reshaping
 
-- Object reshaping SHOULD be avoided by declaring their shape early with `null` values, with the notable exceptions of Objects used as maps (but in this case, ES6 Map/Set/WeakMap/WeapSet is often more suited).
+- Object reshaping **should** be avoided by declaring their shape early with `null` values, with the notable exceptions of Objects used as maps (but in this case, ES6 Map/Set/WeakMap/WeapSet is often more suited).
 
-- `delete` SHOULD NOT be used, with the notable exceptions of Objects used as maps (see above). Settings the value to `null` SHOULD be used to explicity remove a reference for garbage collection.
+- `delete` **should not** be used, with the notable exceptions of Objects used as maps (see above). Settings the value to `null` **should** be used to explicity remove a reference for garbage collection.
 
-- In case reshaping is unavoidable, `Object.assign` MUST be used. In particular, `Object.assign` MUST be used to define prototype properties on ES6 classes.
+- In case reshaping is unavoidable, `Object.assign` **must** be used. In particular, `Object.assign` **must** be used to define prototype properties on ES6 classes.
 
-- In the particular case of a constructor function, an object SHOULD not be reshaped after the end of the constructor.
+- In the particular case of a constructor function, an object **should** not be reshaped after the end of the constructor.
 
-- `__proto__` SHOULD NOT be used. `Object.setPrototypeOf` SHOULD be used instead, but with great care.
+- `__proto__` **should not** be used. `Object.setPrototypeOf` **should** be used instead, but with great care.
 
 ```js
 // bad
@@ -690,11 +729,11 @@ Object.assign(F.prototype, {
 
 ## Classes
 
-- Class names MUST be `PascalCased`.
+- Class names **must** be `PascalCased`.
 
-- When defined, `constructor` SHOULD be the first method of a class definition.
+- When defined, `constructor` **should** be the first method of a class definition.
 
-- The order of class methods definitions SHOULD always be:
+- The order of class methods definitions **should** always be:
 
   - `constructor`
 
@@ -710,10 +749,16 @@ Object.assign(F.prototype, {
 
   - private static methods (with a `_` prefix).
 
-- Prototype properties SHOULD be defined immediatly after the class definition and use `Object.assign` and SHOULD NOT contain methods (set them in the class definition directly).
+- Prototype properties **should** be defined immediatly after the class definition and use `Object.assign` and **should not** contain methods (set them in the class definition directly).
+
+- If your transpiler or environment support ES7 class properties, prototype properties of classes **should not** be used (use class properties instead).
 
 ```js
 class Foo extends Bar {
+  // If your transpiler or environment support ES7 class properties:
+  bax = null;
+  baw = 1337;
+
   constructor() { // constructor
     ...
   }
@@ -742,6 +787,9 @@ class Foo extends Bar {
     ...  
   }
 
+  // If your transpiler or environment support ES7 class properties:
+  static theFoo = 'theBar';
+
   static doFoo() { // public static method
     ...
   }
@@ -751,9 +799,14 @@ class Foo extends Bar {
   }
 }
 
+// If your transpiler or environment doesn't support ES7 class properties:
 Object.assign(Foo.prototype, { // prototype properties
   bax: null,
   baw: 1337,
+});
+
+Object.assign(Foo, { // static properties
+  theFoo: 'theBar',
 });
 ```
 
@@ -762,15 +815,15 @@ Object.assign(Foo.prototype, { // prototype properties
 
 ## Proxies
 
-- Proxies MUST NOT be used at the moment.
+- Proxies **must not** be used at the moment.
 
 *There is no production-ready transpilation for ES6 Proxies. In addition, they may introduce questionable black magic.*
 
 ## Promises
 
-- `Promise#then` MUST NOT be used with 2 parameters. `Promise#catch` MUST be used instead.
+- `Promise#then` **must not** be used with 2 parameters. `Promise#catch` **must** be used instead.
 
-- `Promise#try` SHOULD BE used for `Promise`-returning function, instead of `return Promise.resolve`/`return Promise.reject`.
+- `Promise#try` **should** be used for `Promise`-returning function, instead of `return Promise.resolve`/`return Promise.reject`.
 
 ```
 // bad
@@ -813,7 +866,7 @@ function f() {
 
 ## Tail calls
 
-- Tail call optimization SHOULD NOT be assumed except for simple recursive functions (self-referencing functions). Tail call optimization MUST NOT be relied on for complex recursive function (eg. mutually recursive functions).
+- Tail call optimization **should not** be assumed except for simple recursive functions (self-referencing functions). Tail call optimization **must not** be relied on for complex recursive function (eg. mutually recursive functions).
 
 ```js
 // bad
@@ -855,9 +908,9 @@ function factorial(n) {
 
 ## Generators
 
-- Generators MUST contain at least one `yield` statement. If not, consider using a `Promise`-returning function instead.
+- Generators **must** contain at least one `yield` statement. If not, consider using a `Promise`-returning function instead.
 
-- Generator short-hand definition MUST be used where applicable.
+- Generator short-hand definition **must** be used where applicable.
 
 ```
 // bad
