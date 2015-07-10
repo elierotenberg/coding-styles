@@ -377,6 +377,11 @@ if(expr) {
   ...
 }
 
+// better: explicit type conversion
+if(Boolean(expr)) {
+  ...
+}
+
 // acceptable to prevent leaking values
 someUntrustedFunction(!!expr);
 ```
