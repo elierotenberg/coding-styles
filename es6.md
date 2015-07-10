@@ -242,6 +242,16 @@ const triple = x => 3*x;
 const triple = (x) => 3*x;
 ```
 
+- The arrow symbol **must** be separated from the parameters and function body with a leading and trailing whitespace.
+
+```js
+// bad
+const triple = (x)=>3*x;
+
+// good
+const triple = (x) => 3*x;
+```
+
 - Arrow functions **should** be used instead of `Function.prototype.bind` when applicable. `self` / `_this` / `that` trickery **must not** be used.
 
 ```js
