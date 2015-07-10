@@ -364,7 +364,7 @@ n = n + 1;
 
 - Non-strict comparison operators `==` or `!=` **must not** be used. Strict comparison operators `===` or `!==` **must** be used instead.
 
-- Boolean force-casting `!!expr` **should not** be used. `expr` **should** BE used directly, unless you specifically care about leaking values in a function call or a return value.
+- Boolean force-casting `!!expr` **should not** be used. `expr` **should** BE used directly or explictly converted into the expected type, unless you specifically care about leaking values in a function call or a return value.
 
 ```js
 // bad
