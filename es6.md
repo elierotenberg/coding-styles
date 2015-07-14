@@ -242,6 +242,16 @@ const triple = x => 3*x;
 const triple = (x) => 3*x;
 ```
 
+- The arrow symbol **must** be separated from the parameters and function body with a leading and trailing whitespace.
+
+```js
+// bad
+const triple = (x)=>3*x;
+
+// good
+const triple = (x) => 3*x;
+```
+
 - Arrow functions **should** be used instead of `Function.prototype.bind` when applicable. `self` / `_this` / `that` trickery **must not** be used.
 
 ```js
@@ -354,7 +364,7 @@ n = n + 1;
 
 - Non-strict comparison operators `==` or `!=` **must not** be used. Strict comparison operators `===` or `!==` **must** be used instead.
 
-- Boolean force-casting `!!expr` **should not** be used. `expr` **should** BE used directly, unless you specifically care about leaking values in a function call or a return value.
+- Boolean force-casting `!!expr` **should not** be used. `expr` **should** BE used directly or explictly converted into the expected type, unless you specifically care about leaking values in a function call or a return value.
 
 ```js
 // bad
@@ -364,6 +374,11 @@ if(!!expr) {
 
 // good
 if(expr) {
+  ...
+}
+
+// better: explicit type conversion
+if(Boolean(expr)) {
   ...
 }
 
@@ -930,6 +945,16 @@ const a = {
 
 *Pure convention. Also, `Promise` and `yield` are interoperable, see [`Promise#coroutine`](https://github.com/petkaantonov/bluebird/blob/master/API.md#generators).*
 
-## JSX/React
+## Prefer lodash before own implementation where applicable
+- Any functionality that is present in lodash (or any other framework) **must** be used instead of own implementations.
+```
+// bad
+if(['foo', 'bar'].indexof('foo') !== -1){
+...
+}
 
-TBD.
+// good
+if(_.contains(['foo', 'bar'], 'foo'){
+...
+}
+```
