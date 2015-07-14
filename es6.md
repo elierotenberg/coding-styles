@@ -945,6 +945,16 @@ const a = {
 
 *Pure convention. Also, `Promise` and `yield` are interoperable, see [`Promise#coroutine`](https://github.com/petkaantonov/bluebird/blob/master/API.md#generators).*
 
-## JSX/React
+## Prefer lodash before own implementation where applicable
+- Any functionality that is present in lodash (or any other framework) **must** be used instead of own implementations.
+```
+// bad
+if(['foo', 'bar'].indexof('foo') !== -1){
+...
+}
 
-TBD.
+// good
+if(_.contains(['foo', 'bar'], 'foo'){
+...
+}
+```
