@@ -198,13 +198,13 @@ const [a, b, c] = [1, 2, 3];
 ```
 // bad
 function A() {
-  
+
 }
 const a = new A();
 
 // good
 class A {
-  
+
 }
 const a = new A();
 ```
@@ -456,12 +456,12 @@ if(true) {
 ```js
 // bad
 function *g() {
-  
-} 
+
+}
 
 // good
 function* g() {
-  
+
 }
 ```
 
@@ -583,6 +583,7 @@ const id = (x) => x;
 ## if/else construct
 
 - `if`/`else if`/`else` **must** be preceded by a newline.
+
 ```js
 // bad
 if(...) {
@@ -606,6 +607,42 @@ else {
 ```
 
 *Easier to read and refactor.*
+
+## Ternary operator
+
+- Ternary operator (`?:`) **should** be avoided.
+- It **must not** be used if:
+  - The whole expression cannot fit on one line.
+  - The expression involve other ternay operators.
+  - The members of the expression are too complex to keep it readable.
+
+```js
+// bad
+const foo = bar === baz ? aFunctionWithALongNameCalledIfTheFirstExpressionIsTrue()
+: aFunctionWithALongNameCalledIfTheFirstExpressionIsFalse();
+
+// bad
+const foo = bar === baz
+? aFunctionWithALongNameCalledIfTheFirstExpressionIsTrue()
+: aFunctionWithALongNameCalledIfTheFirstExpressionIsFalse();
+
+// bad
+const foo = bar === baz ?
+aFunctionWithALongNameCalledIfTheFirstExpressionIsTrue() :
+aFunctionWithALongNameCalledIfTheFirstExpressionIsFalse();
+
+// bad
+const foo = fooBar(bar + qux) * qux ? fooBar(barFoo({ bar })[qux]).foo : fooBar(barFoo({ qux })[foo]).baz;
+
+// bad
+const foo = qux ? (bar ? qux : baz) : bar;
+
+// acceptable
+const foo = bar === baz ? bar + 1 : baz - 1;
+
+// good
+const foo = bar ? baz : qux;
+```
 
 # switch construct
 
@@ -844,10 +881,10 @@ function f() {
 
 // good
 p.then(() => {
-  
+
 })
 .catch(() => {
-  
+
 });
 
 function f() {
