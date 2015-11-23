@@ -536,7 +536,7 @@ if(true) {
 const id = (x) => x;
 const id = (x) => {
   return x;
-}
+};
 ```
 
 *Always-braces is easier to maintain: one can add or remove statements/instructions without having to maintain the braces. Also easier to scan.*
