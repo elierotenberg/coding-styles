@@ -1,6 +1,6 @@
 # ES6 Coding Style
 
-This document is intented to provide consistent and helpful coding convention for ES6 code. It should be usable either in Node/IO.js or in the browser.
+This document is intended to provide consistent and helpful coding convention for ES6 code. It should be usable either in Node/IO.js or in the browser.
 
 The recommended transpiling tool for ES6 to ES5 is [babel](http://babeljs.io/). The recommended bundler for the browser is [webpack](https://github.com/webpack/webpack), but [browserify](http://browserify.org/) is also acceptable.
 
@@ -14,7 +14,7 @@ Rationale for each instruction is *italic*. Some instructions are under the *pur
 
 - The following constructs **must not** be used, for both performance and critical security reasons.
 
-  - `eval` and similar `new Function`, `setTimeout(string)`, `setInterval(string)`, `setImmediate(string)` (however `setTimeout(function)` etc is perfectly fine).
+  - `eval` and similar `new Function`, `setTimeout(string)`, `setInterval(string)`, `setImmediate(string)` (however `setTimeout(function)` etc. is perfectly fine).
 
   - `with`,
 
@@ -170,7 +170,7 @@ const c = 'foobar';
 
 - `var` **must not** be used.
 
-- `const` **should** be used dy default. If you really need to use `let`, its acceptable, but its most often a sign that you should refactor.
+- `const` **should** be used by default. If you really need to use `let`, its acceptable, but its most often a sign that you should refactor.
 
 - `const` (or `let`) **must** be used exactly once per variable declaration.
 
@@ -195,7 +195,7 @@ const [a, b, c] = [1, 2, 3];
 
 - `new` **must not** be used with functions which are not ES6 classes.
 
-```
+```js
 // bad
 function A() {
 
@@ -303,7 +303,7 @@ function sum(...rest) {
 
 - Object parameters (with default values) **should** be used for options parameters. Boolean parameters **must not** be used.
 
-```
+```js
 // bad
 function divide(a, b, shouldCheckForZero = false ) {
 
@@ -537,6 +537,9 @@ const id = (x) => x;
 const id = (x) => {
   return x;
 };
+const id = (x) =>
+  functionCall(x)
+;
 ```
 
 *Always-braces is easier to maintain: one can add or remove statements/instructions without having to maintain the braces. Also easier to scan.*
@@ -578,7 +581,7 @@ function id(x) { return x; }
 const id = (x) => x;
 ```
 
-*Easier to maintain; one can add or remove statements without having to maintain the semicolon. Also procudes cleaner git diffs. Avoid subtle bugs.*
+*Easier to maintain; one can add or remove statements without having to maintain the semicolon. Also produces cleaner git diffs. Avoid subtle bugs.*
 
 ## if/else construct
 
@@ -611,9 +614,13 @@ else {
 ## Ternary operator
 
 - Ternary operator (`?:`) **should** be avoided.
+
 - It **must not** be used if:
-  - The whole expression cannot fit on one line.
-  - The expression involve other ternay operators.
+
+  - The whole expression cannot fit on one line;
+
+  - The expression involve other ternary operators;
+
   - The members of the expression are too complex to keep it readable.
 
 ```js
@@ -688,6 +695,11 @@ const moduleA = require('moduleA');
 const func1 = moduleA.func1;
 const func2 = moduleA.func2;
 
+// bad
+import * as moduleA from 'moduleA';
+const func1 = moduleA.func1;
+const func2 = moduleA.func2;
+
 // good
 import { func1, func2 } from 'moduleA';
 ```
@@ -716,7 +728,7 @@ if(x === void 0) {
 
 - Object reshaping **should** be avoided by declaring their shape early with `null` values, with the notable exceptions of Objects used as maps (but in this case, ES6 Map/Set/WeakMap/WeapSet is often more suited).
 
-- `delete` **should not** be used, with the notable exceptions of Objects used as maps (see above). Settings the value to `null` **should** be used to explicity remove a reference for garbage collection.
+- `delete` **should not** be used, with the notable exceptions of Objects used as maps (see above). Settings the value to `null` **should** be used to explicitly remove a reference for garbage collection.
 
 - In case reshaping is unavoidable, `Object.assign` **must** be used. In particular, `Object.assign` **must** be used to define prototype properties on ES6 classes.
 
@@ -761,7 +773,7 @@ Object.assign(F.prototype, {
 });
 ```
 
-*Object reshaping highly impacts performance on frequently created/used Objects. While negligible on less frequently used Objects (eg. singletons), it is preferable to be consistent and always avoid reshaping Objects. Objets used as hashes (maps) will often be reshaped anyway so this cannot be avoided, but in this case consider using ES6 Map/Set/WeakMap/WeakSet. Usage of Object.assign instead of multiple property assignment is marginally less efficient, but is easier to maintain and enables using the ES6 method short notation. Mutating the `__proto__` has huge performance implications and should be used with extreme care.*
+*Object reshaping highly impacts performance on frequently created/used Objects. While negligible on less frequently used Objects (eg. singletons), it is preferable to be consistent and always avoid reshaping Objects. Objects used as hashes (maps) will often be reshaped anyway so this cannot be avoided, but in this case consider using ES6 Map/Set/WeakMap/WeakSet. Usage of Object.assign instead of multiple property assignment is marginally less efficient, but is easier to maintain and enables using the ES6 method short notation. Mutating the `__proto__` has huge performance implications and should be used with extreme care.*
 
 
 ## Classes
@@ -786,7 +798,7 @@ Object.assign(F.prototype, {
 
   - private static methods (with a `_` prefix).
 
-- Prototype properties **should** be defined immediatly after the class definition and use `Object.assign` and **should not** contain methods (set them in the class definition directly).
+- Prototype properties **should** be defined immediately after the class definition and use `Object.assign` and **should not** contain methods (set them in the class definition directly).
 
 - If your transpiler or environment support ES7 class properties, prototype properties of classes **should not** be used (use class properties instead).
 
@@ -862,7 +874,7 @@ Object.assign(Foo, { // static properties
 
 - `Promise#try` **should** be used for `Promise`-returning function, instead of `return Promise.resolve`/`return Promise.reject`.
 
-```
+```js
 // bad
 p.then(() => {
   ...
@@ -949,7 +961,7 @@ function factorial(n) {
 
 - Generator short-hand definition **must** be used where applicable.
 
-```
+```js
 // bad
 const a = {
   g: function*() {
@@ -966,7 +978,3 @@ const a = {
 ```
 
 *Pure convention. Also, `Promise` and `yield` are interoperable, see [`Promise#coroutine`](https://github.com/petkaantonov/bluebird/blob/master/API.md#generators).*
-
-## JSX/React
-
-TBD.
