@@ -236,10 +236,10 @@ a.reduce((x, y) => x + y, 0);
 
 ```js
 // bad
-const triple = x => 3*x;
+const triple = x => 3 * x;
 
 // good
-const triple = (x) => 3*x;
+const triple = (x) => 3 * x;
 ```
 
 - Arrow functions **should** be used instead of `Function.prototype.bind` when applicable. `self` / `_this` / `that` trickery **must not** be used.
