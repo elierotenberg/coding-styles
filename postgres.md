@@ -418,16 +418,12 @@ bar_with AS (
              FROM bar
          )
 );
-```
 
-## Special queries indentation ##
-##### Action queries must be right-aligned on each action. Each new keywords must be left-aligned.
-```sql
 -- good
 ALTER TABLE foo
-        ADD CONSTRAINT fkey_foo_on_bar_id
+        ADD  CONSTRAINT fkey_foo_on_bar_id
             FOREIGN KEY (bar_id)
-            REFERENCES bar(bar_id),
+             REFERENCES bar(bar_id),
         ADD CONSTRAINT check_foo_on_baz
-            CHECK (baz > 10);
+                 CHECK (baz > 10);
 ```
