@@ -208,34 +208,28 @@ CREATE TABLE foo(bar integer, NOT NULL (bar));
 CREATE TABLE foo(bar integer NOT NULL);
 ```
 
-##### `PRIMARY KEY` constraints must be declared into the table declaration WITH explicit column reference.
+##### As they are unique, `PRIMARY KEY` constraints must be named based on the `pkey_*table*` pattern.
 ```sql
 -- bad
-CREATE TABLE foo(foo_id serial PRIMARY KEY);
+ALTER TABLE foo ADD CONSTRAINT foo_foo_id_pkey PRIMARY KEY (foo_id);
 
 -- good
-CREATE TABLE foo(foo_id serial, PRIMARY KEY (foo_id));
+ALTER TABLE foo ADD CONSTRAINT pkey_foo PRIMARY KEY (foo_id);
 ```
 
-##### Other constraints must be explicitly named based on the `*key*_*table*_on_*column*(_and_*column*)` pattern (keys are: `fkey` for `FOREIGN KEY`, `key` for `UNIQUE`, `check` for `CHECK`).
+##### Other constraints must be explicitly named based on the `*key*_*table*_on_*column*(_and_*column*)` pattern.
+Keys are: `fkey` for `FOREIGN KEY`, `key` for `UNIQUE`, `check` for `CHECK`.
 ```sql
--- bad
-CREATE TABLE foo(bar_id integer REFERENCES bar(bar_id));
-
--- good
-CREATE TABLE foo(bar_id integer, CONSTRAINT fkey_foo_on_bar_id FOREIGN KEY bar_id REFERENCES bar(bar_id));
+CREATE TABLE foo(foo_id serial, bar_id integer);
 
 -- bad
-CREATE TABLE foo(bar text UNIQUE);
+ALTER TABLE foo ADD CONSTRAINT foo_bar_id_fkey FOREIGN KEY bar_id REFERENCES bar(bar_id);
 
 -- good
-CREATE TABLE foo(bar text, CONSTRAINT key_foo_on_bar UNIQUE (bar));
-
--- bad
-CREATE TABLE foo(bar integer CHECK (bar > 1));
+ALTER TABLE foo ADD CONSTRAINT fkey_foo_on_bar_id FOREIGN KEY bar_id REFERENCES bar(bar_id);
 
 -- good
-CREATE TABLE foo(bar integer, CONSTRAINT check_foo_on_bar CHECK (bar > 1));
+ALTER TABLE foo ADD CONSTRAINT check_foo_on_foo_id_and_bar_id CHECK (foo_id > bar_id);
 ```
 
 ## Indexes ##

@@ -4,3 +4,4 @@ This repository contains my coding style guidelines.
 - [PostgreSQL coding guidelines](postgres.md)
 
 An [`.eslintrc`](.eslintrc) file with pre-configured rules is available if you wish to use [ESLint](http://eslint.org/).
+It currently works under `1.10.1` version.
