@@ -425,16 +425,16 @@ const a = [ 1, 2 ];
 const a = [1, 2];
 ```
 
-- Space **must not** be used before the leading paren `(`.
+- Space **must** be used before the leading paren `(`.
 
 ```js
 // bad
-if (true) {
+if(true) {
   ...
 }
 
 // good
-if(true) {
+if (true) {
   ...
 }
 ```
