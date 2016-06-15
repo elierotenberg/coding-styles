@@ -825,7 +825,7 @@ class Foo extends Bar {
   }
 
   get _baz() { // private getter
-    ...  
+    ...
   }
 
   set _baz(val) { // private setter
@@ -833,7 +833,7 @@ class Foo extends Bar {
   }
 
   _doFoo() { // private method
-    ...  
+    ...
   }
 
   // If your transpiler or environment support ES7 class properties:
@@ -844,7 +844,7 @@ class Foo extends Bar {
   }
 
   static _doFoo() { // private static method
-    ...  
+    ...
   }
 }
 
