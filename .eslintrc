@@ -181,7 +181,7 @@
     "no-mixed-spaces-and-tabs": 1, //disallow mixed spaces and tabs for indentation (recommended)
     "no-multiple-empty-lines": [1, { "max": 1 }], //disallow multiple empty lines
     "no-negated-condition": 1, //disallow negated conditions
-    "no-nested-ternary": 0, //disallow nested ternary expressions
+    "no-nested-ternary": 1, //disallow nested ternary expressions
     "no-new-object": 1, //disallow the use of the Object constructor
     "no-restricted-syntax": [1,
       "BreakStatement",
