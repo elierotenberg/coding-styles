@@ -30,7 +30,8 @@
   },
   "parser": "babel-eslint",
   "plugins": [
-    "react"
+    "react",
+    "react-native"
   ],
   "rules": {
     /* Possible Errors */
@@ -250,7 +251,11 @@
     "no-plusplus": 1, //disallow use of unary operators, ++ and --
 
     /* React */
-    "react/display-name": 0, //Prevent missing displayName in a React component definition
+
+    "react/no-deprecated": 2,
+    "react/no-string-refs": 1,
+    "react/no-direct-mutation-state": 2,
+    "react/display-name": 1, //Prevent missing displayName in a React component definition
     "react/forbid-prop-types": 0, //Forbid certain propTypes
     "react/jsx-boolean-value": 1, //Enforce boolean attributes notation in JSX
     "react/jsx-closing-bracket-location": 0, //Validate closing bracket location in JSX
@@ -267,11 +272,11 @@
     "react/jsx-sort-props": 1, //Enforce props alphabetical sorting
     "react/jsx-uses-react": 1, //Prevent React to be incorrectly marked as unused
     "react/jsx-uses-vars": 1, //Prevent variables used in JSX to be incorrectly marked as unused
-    "react/no-danger": 1, //Prevent usage of dangerous JSX properties
+    "react/no-danger": 2, //Prevent usage of dangerous JSX properties
     "react/no-did-mount-set-state": 1, //Prevent usage of setState in componentDidUpdate
     "react/no-did-update-set-state": 1, //Prevent usage of setState in componentDidUpdate
     "react/no-direct-mutation-state": 1, //Prevent direct mutation of this.state
-    "react/no-multi-comp": 0, // prevent multiple component definition per file
+    "react/no-multi-comp": 1, // prevent multiple component definition per file
     "react/no-set-state": 0, //Prevent usage of setState
     "react/no-unknown-property": 1, //Prevent usage of unknown DOM property
     "react/prefer-es6-class": 1, //Use ES6 Class instead of Reacy.createClass
@@ -281,5 +286,12 @@
     "react/self-closing-comp": 1, //Prevent extra closing tags for components without children
     "react/sort-comp": 1, //Enforce component methods order
     "react/wrap-multilines": 0 //Prevent missing parentheses around multiline JSX
+
+    /* React Native */
+
+    "react-native/no-unused-styles": 2,
+    "react-native/split-platform-components": 2,
+    "react-native/no-inline-styles": 2,
+    "react-native/no-color-literals": 2,
   }
 }
