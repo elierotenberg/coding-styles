@@ -696,24 +696,6 @@ import { func1, func2 } from 'moduleA';
 
 *More standards-friendly and easier to change the module implementation backend (eg. CommonJS/AMD) at the transpiler level.*
 
-## undefined
-
-- `undefined` **must not** be used, `void 0` **must** be used instead.
-
-```js
-// bad
-if(x === undefined) {
-  ...
-}
-
-// good
-if(x === void 0) {
-  ...
-}
-```
-
-*Pure convention. Also `void 0` looks more l33t.*
-
 ## Object extension and reshaping
 
 - Object reshaping **should** be avoided by declaring their shape early with `null` values, with the notable exceptions of Objects used as maps (but in this case, ES6 Map/Set/WeakMap/WeapSet is often more suited).
