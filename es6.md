@@ -340,18 +340,6 @@ t.y = 4;
 
 ## Operators
 
-- Short-hand operators `+=`-like and `++`-like operators **must not** be used. Also, consider refactoring to get rid of the underlying `let`.
-
-```js
-let n = 0;
-// bad
-n += 1;
-n++;
-
-// good
-n = n + 1;
-```
-
 - Non-strict comparison operators `==` or `!=` **must not** be used. Strict comparison operators `===` or `!==` **must** be used instead.
 
 - Boolean force-casting `!!expr` **should not** be used. `expr` **should** BE used directly, unless you specifically care about leaking values in a function call or a return value.
