@@ -484,6 +484,8 @@ const a = b + c;
 
 - Files **must** end with a single newline character.
 
+- Files **must not** contain trailing whitespace.
+
 - Leading dot and proper indentation **must** be used for method chaining.
 
 ```js
