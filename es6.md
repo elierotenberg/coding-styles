@@ -633,8 +633,6 @@ const foo = fooBar(bar + qux) * qux ? fooBar(barFoo({ bar })[qux]).foo : fooBar(
 
 // bad
 const foo = qux ? (bar ? qux : baz) : bar;
-
-// acceptable
 const foo = bar === baz ? bar + 1 : baz - 1;
 
 // good
