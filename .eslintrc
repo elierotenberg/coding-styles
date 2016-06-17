@@ -80,7 +80,8 @@
     "no-case-declarations": 0, // disallow lexical declarations in case clauses
     "no-div-regex": 1, //disallow division operators explicitly at beginning of regular expression
     "no-else-return": 1, //disallow else after a return in an if
-    "no-empty-label": 1, //disallow use of labels for anything other than loops and switches
+    "no-constant-condition": 1, // disallow use of labels for anything other than loops and switches
+    "no-confusing-arrow": 1, // disallow use of labels for anything other than loops and switches
     "no-empty-pattern": 1, //disallow use of empty destructuring patterns
     "no-eq-null": 1, //disallow comparisons to null without a type-checking operator
     "no-eval": 1, //disallow use of eval()
