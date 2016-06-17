@@ -80,7 +80,7 @@
     "no-case-declarations": 0, // disallow lexical declarations in case clauses
     "no-div-regex": 1, //disallow division operators explicitly at beginning of regular expression
     "no-else-return": 1, //disallow else after a return in an if
-    "no-empty-label": 1, //disallow use of labels for anything other than loops and switches
+    "no-confusing-arrow": 1, // disallow use of labels for anything other than loops and switches
     "no-empty-pattern": 1, //disallow use of empty destructuring patterns
     "no-eq-null": 1, //disallow comparisons to null without a type-checking operator
     "no-eval": 1, //disallow use of eval()
@@ -217,7 +217,7 @@
     "space-before-keywords": [0, "never"], //require a space before certain keywords (fixable)
     "space-in-parens": [1, "never"], //require or disallow spaces inside parentheses
     "space-infix-ops": 1, //require spaces around operators (fixable)
-    "space-return-throw-case": 1, //require a space after return, throw, and case (fixable)
+    "keyword-spacing": 1, //require a space after return, throw, and case (fixable)
     "space-unary-ops": 0, //require or disallow spaces before/after unary operators (fixable)
     "spaced-comment": [1, "always"], //require or disallow a space immediately following the // or /* in a comment
     "wrap-regex": 1, //require regex literals to be wrapped in parentheses
@@ -227,7 +227,6 @@
     "arrow-parens": [1, "always"], // require parens in arrow function arguments
     "arrow-spacing": [1, { "before": true, "after": true }], //require space before/after arrow function's arrow (fixable)
     "constructor-super": 1, //verify calls of super() in constructors
-    "no-arrow-condition": 1, // disallow arrow functions where a condition is expected
     "generator-star-spacing": [1, "after"], // enforce spacing around the * in generator functions (fixable)
     "no-class-assign": 1, //disallow modifying variables of class declarations
     "no-const-assign": 1, //disallow modifying variables that are declared using const
@@ -275,7 +274,6 @@
     "react/no-danger": 2, //Prevent usage of dangerous JSX properties
     "react/no-did-mount-set-state": 1, //Prevent usage of setState in componentDidUpdate
     "react/no-did-update-set-state": 1, //Prevent usage of setState in componentDidUpdate
-    "react/no-direct-mutation-state": 1, //Prevent direct mutation of this.state
     "react/no-multi-comp": 1, // prevent multiple component definition per file
     "react/no-set-state": 0, //Prevent usage of setState
     "react/no-unknown-property": 1, //Prevent usage of unknown DOM property
@@ -285,7 +283,7 @@
     "react/require-extension": 1, //Restrict file extensions that may be required
     "react/self-closing-comp": 1, //Prevent extra closing tags for components without children
     "react/sort-comp": 1, //Enforce component methods order
-    "react/wrap-multilines": 0 //Prevent missing parentheses around multiline JSX
+    "react/wrap-multilines": 0, //Prevent missing parentheses around multiline JSX
 
     /* React Native */
 
