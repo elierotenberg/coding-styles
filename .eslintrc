@@ -80,7 +80,6 @@
     "no-case-declarations": 0, // disallow lexical declarations in case clauses
     "no-div-regex": 1, //disallow division operators explicitly at beginning of regular expression
     "no-else-return": 1, //disallow else after a return in an if
-    "no-constant-condition": 1, // disallow use of labels for anything other than loops and switches
     "no-confusing-arrow": 1, // disallow use of labels for anything other than loops and switches
     "no-empty-pattern": 1, //disallow use of empty destructuring patterns
     "no-eq-null": 1, //disallow comparisons to null without a type-checking operator
@@ -276,7 +275,6 @@
     "react/no-danger": 2, //Prevent usage of dangerous JSX properties
     "react/no-did-mount-set-state": 1, //Prevent usage of setState in componentDidUpdate
     "react/no-did-update-set-state": 1, //Prevent usage of setState in componentDidUpdate
-    "react/no-direct-mutation-state": 1, //Prevent direct mutation of this.state
     "react/no-multi-comp": 1, // prevent multiple component definition per file
     "react/no-set-state": 0, //Prevent usage of setState
     "react/no-unknown-property": 1, //Prevent usage of unknown DOM property
@@ -286,7 +284,7 @@
     "react/require-extension": 1, //Restrict file extensions that may be required
     "react/self-closing-comp": 1, //Prevent extra closing tags for components without children
     "react/sort-comp": 1, //Enforce component methods order
-    "react/wrap-multilines": 0 //Prevent missing parentheses around multiline JSX
+    "react/wrap-multilines": 0, //Prevent missing parentheses around multiline JSX
 
     /* React Native */
 
