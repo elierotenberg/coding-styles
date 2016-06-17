@@ -155,7 +155,7 @@
     "array-bracket-spacing": [1, "never"], //enforce spacing inside array brackets (fixable)
     "block-spacing": [1, "always"], //disallow or enforce spaces inside of single line blocks (fixable)
     "brace-style": [1, "stroustrup", { "allowSingleLine": true }], //enforce one true brace style
-    "camelcase": [1, { "properties": "always" }], //require camel case names
+    "camelcase": [0, { "properties": "always" }], //require camel case names
     "comma-spacing": [1, { "before": false, "after": true }], //enforce spacing before and after comma
     "comma-style": [1, "last"], //enforce one true comma style
     "computed-property-spacing": 0, //require or disallow padding inside computed properties (fixable)
