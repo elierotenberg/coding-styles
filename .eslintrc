@@ -8,7 +8,6 @@
     "destructuring": true,
     "forOf": true,
     "generators": true,
-    "mocha": true,
     "modules": false,
     "objectLiteralComputedProperties": true,
     "objectLiteralDuplicateProperties": false,
@@ -27,7 +26,8 @@
   },
   "env": {
     "browser": true,
-    "node": true
+    "node": true,
+    "mocha": true,
   },
   "parser": "babel-eslint",
   "plugins": [
