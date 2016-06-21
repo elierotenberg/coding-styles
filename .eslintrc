@@ -8,6 +8,7 @@
     "destructuring": true,
     "forOf": true,
     "generators": true,
+    "mocha": true,
     "modules": false,
     "objectLiteralComputedProperties": true,
     "objectLiteralDuplicateProperties": false,
