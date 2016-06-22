@@ -54,7 +54,7 @@ function Constructor() { ... }
 class Class { ... }
 const Namespace = {};
 
-if(__MACRO__) { ... }
+if (__MACRO__) { ... }
 const SOME_MAGIC_NUMBER = 1337;
 const {
   _privateMethod() {
@@ -346,12 +346,12 @@ t.y = 4;
 
 ```js
 // bad
-if(!!expr) {
+if (!!expr) {
   ...
 }
 
 // good
-if(expr) {
+if (expr) {
   ...
 }
 
@@ -379,12 +379,12 @@ someUntrustedFunction(!!expr);
 
 ```js
 // bad
-if(true) {
+if (true) {
     return 42;
 }
 
 // good
-if(true) {
+if (true) {
   return 42;
 }
 ```
@@ -393,12 +393,12 @@ if(true) {
 
 ```js
 // bad
-if(true){
+if (true){
   ...
 }
 
 // good
-if(true) {
+if (true) {
   ...
 }
 ```
@@ -425,16 +425,16 @@ const a = [ 1, 2 ];
 const a = [1, 2];
 ```
 
-- Space **must not** be used before the leading paren `(`.
+- Space **must** be used before the leading paren `(`.
 
 ```js
 // bad
-if (true) {
+if(true) {
   ...
 }
 
 // good
-if(true) {
+if (true) {
   ...
 }
 ```
@@ -513,14 +513,14 @@ a.then(...)
 
 ```js
 // bad
-if(true)
+if (true)
  return 42;
-if(true) return 42;
+if (true) return 42;
 const id = (x) => { return x; };
 
 // good
-if(true) { return 42; }
-if(true) {
+if (true) { return 42; }
+if (true) {
   return 42;
 }
 const id = (x) => x;
@@ -579,16 +579,16 @@ const id = (x) => x;
 
 ```js
 // bad
-if(...) {
+if (...) {
   ...
-} else if(...) {
+} else if (...) {
   ...
 } else {
   ...
 }
 
 // good
-if(...) {
+if (...) {
   ...
 }
 else if {
@@ -851,7 +851,7 @@ p.then(() => {
 });
 
 function f() {
-  if(...) {
+  if (...) {
     return Promise.resolve(...);
   }
   else {
@@ -869,7 +869,7 @@ p.then(() => {
 
 function f() {
   return Promise.try(() => {
-    if(...) {
+    if (...) {
       return ...;
     }
     else {
@@ -888,20 +888,20 @@ function f() {
 ```js
 // bad
 function odd(n) {
-  if(n === 0) {
+  if (n === 0) {
     return false;
   }
-  if(n === 1) {
+  if (n === 1) {
     return true;
   }
   return !even(n-1);
 }
 
 function even(n) {
-  if(n === 0) {
+  if (n === 0) {
     return true;
   }
-  if(n === 1) {
+  if (n === 1) {
     return false;
   }
   return !odd(n-1);
@@ -910,7 +910,7 @@ function even(n) {
 // good
 function factorial(n) {
   function factorialLoop(n, acc) {
-    if(n === 1) {
+    if (n === 1) {
       return acc;
     }
     else {
