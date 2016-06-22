@@ -575,7 +575,7 @@ const id = (x) => x;
 
 ## if/else construct
 
-- `if`/`else if`/`else` **must** be preceded by a newline.
+- `if`/`else if`/`else` **must not** be preceded by a newline.
 
 ```js
 // bad
@@ -590,11 +590,9 @@ if (...) {
 // good
 if (...) {
   ...
-}
-else if {
+} else if {
   ...
-}
-else {
+} else {
   ...
 }
 ```
