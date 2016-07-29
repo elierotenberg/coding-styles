@@ -224,7 +224,7 @@
     "arrow-spacing": [1, { "before": true, "after": true }], //require space before/after arrow function's arrow (fixable)
     "constructor-super": 1, //verify calls of super() in constructors
     "generator-star-spacing": [1, "after"], // enforce spacing around the * in generator functions (fixable)
-    "no-class-assign": 1, //disallow modifying variables of class declarations
+    "no-class-assign": 0, //disallow modifying variables of class declarations
     "no-const-assign": 1, //disallow modifying variables that are declared using const
     "no-dupe-class-members": 1, //disallow duplicate name in class members
     "no-this-before-super": 1, //disallow use of this/super before calling super() in constructors.
