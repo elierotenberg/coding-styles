@@ -1,4 +1,4 @@
-{
+module.exports = {
   "ecmaFeatures": {
     "arrowFunctions": true,
     "binaryLiterals": false,
@@ -114,7 +114,7 @@
     "no-self-compare": 1, //disallow comparisons where both sides are exactly the same
     "no-sequences": 1, //disallow use of the comma operator
     "no-throw-literal": 1, //restrict what can be thrown as an exception
-    "no-unused-expressions": [1, { allowShortCircuit: true, allowTernary: true }], //disallow usage of expressions in statement position
+    "no-unused-expressions": [1, { "allowShortCircuit": true, "allowTernary": true }], //disallow usage of expressions in statement position
     "no-useless-call": 1, //disallow unnecessary .call() and .apply()
     "no-useless-concat": 1, //disallow unnecessary concatenation of literals or template literals
     "no-void": 0, //disallow use of the void operator
