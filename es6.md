@@ -54,7 +54,7 @@ function Constructor() { ... }
 class Class { ... }
 const Namespace = {};
 
-if(__MACRO__) { ... }
+if (__MACRO__) { ... }
 const SOME_MAGIC_NUMBER = 1337;
 const {
   _privateMethod() {
@@ -340,30 +340,18 @@ t.y = 4;
 
 ## Operators
 
-- Short-hand operators `+=`-like and `++`-like operators **must not** be used. Also, consider refactoring to get rid of the underlying `let`.
-
-```js
-let n = 0;
-// bad
-n += 1;
-n++;
-
-// good
-n = n + 1;
-```
-
 - Non-strict comparison operators `==` or `!=` **must not** be used. Strict comparison operators `===` or `!==` **must** be used instead.
 
 - Boolean force-casting `!!expr` **should not** be used. `expr` **should** BE used directly, unless you specifically care about leaking values in a function call or a return value.
 
 ```js
 // bad
-if(!!expr) {
+if (!!expr) {
   ...
 }
 
 // good
-if(expr) {
+if (expr) {
   ...
 }
 
@@ -391,12 +379,12 @@ someUntrustedFunction(!!expr);
 
 ```js
 // bad
-if(true) {
+if (true) {
     return 42;
 }
 
 // good
-if(true) {
+if (true) {
   return 42;
 }
 ```
@@ -405,12 +393,12 @@ if(true) {
 
 ```js
 // bad
-if(true){
+if (true){
   ...
 }
 
 // good
-if(true) {
+if (true) {
   ...
 }
 ```
@@ -437,16 +425,16 @@ const a = [ 1, 2 ];
 const a = [1, 2];
 ```
 
-- Space **must not** be used before the leading paren `(`.
+- Space **must** be used before the leading paren `(`.
 
 ```js
 // bad
-if (true) {
+if(true) {
   ...
 }
 
 // good
-if(true) {
+if (true) {
   ...
 }
 ```
@@ -496,6 +484,8 @@ const a = b + c;
 
 - Files **must** end with a single newline character.
 
+- Files **must not** contain trailing whitespace.
+
 - Leading dot and proper indentation **must** be used for method chaining.
 
 ```js
@@ -523,14 +513,14 @@ a.then(...)
 
 ```js
 // bad
-if(true)
+if (true)
  return 42;
-if(true) return 42;
+if (true) return 42;
 const id = (x) => { return x; };
 
 // good
-if(true) { return 42; }
-if(true) {
+if (true) { return 42; }
+if (true) {
   return 42;
 }
 const id = (x) => x;
@@ -585,26 +575,24 @@ const id = (x) => x;
 
 ## if/else construct
 
-- `if`/`else if`/`else` **must** be preceded by a newline.
+- `if`/`else if`/`else` **must not** be preceded by a newline.
 
 ```js
 // bad
-if(...) {
+if (...) {
   ...
-} else if(...) {
+} else if (...) {
   ...
 } else {
   ...
 }
 
 // good
-if(...) {
+if (...) {
   ...
-}
-else if {
+} else if {
   ...
-}
-else {
+} else {
   ...
 }
 ```
@@ -640,11 +628,7 @@ aFunctionWithALongNameCalledIfTheFirstExpressionIsFalse();
 
 // bad
 const foo = fooBar(bar + qux) * qux ? fooBar(barFoo({ bar })[qux]).foo : fooBar(barFoo({ qux })[foo]).baz;
-
-// bad
 const foo = qux ? (bar ? qux : baz) : bar;
-
-// acceptable
 const foo = bar === baz ? bar + 1 : baz - 1;
 
 // good
@@ -705,24 +689,6 @@ import { func1, func2 } from 'moduleA';
 ```
 
 *More standards-friendly and easier to change the module implementation backend (eg. CommonJS/AMD) at the transpiler level.*
-
-## undefined
-
-- `undefined` **must not** be used, `void 0` **must** be used instead.
-
-```js
-// bad
-if(x === undefined) {
-  ...
-}
-
-// good
-if(x === void 0) {
-  ...
-}
-```
-
-*Pure convention. Also `void 0` looks more l33t.*
 
 ## Object extension and reshaping
 
@@ -825,7 +791,7 @@ class Foo extends Bar {
   }
 
   get _baz() { // private getter
-    ...  
+    ...
   }
 
   set _baz(val) { // private setter
@@ -833,7 +799,7 @@ class Foo extends Bar {
   }
 
   _doFoo() { // private method
-    ...  
+    ...
   }
 
   // If your transpiler or environment support ES7 class properties:
@@ -844,7 +810,7 @@ class Foo extends Bar {
   }
 
   static _doFoo() { // private static method
-    ...  
+    ...
   }
 }
 
@@ -883,7 +849,7 @@ p.then(() => {
 });
 
 function f() {
-  if(...) {
+  if (...) {
     return Promise.resolve(...);
   }
   else {
@@ -901,7 +867,7 @@ p.then(() => {
 
 function f() {
   return Promise.try(() => {
-    if(...) {
+    if (...) {
       return ...;
     }
     else {
@@ -920,20 +886,20 @@ function f() {
 ```js
 // bad
 function odd(n) {
-  if(n === 0) {
+  if (n === 0) {
     return false;
   }
-  if(n === 1) {
+  if (n === 1) {
     return true;
   }
   return !even(n-1);
 }
 
 function even(n) {
-  if(n === 0) {
+  if (n === 0) {
     return true;
   }
-  if(n === 1) {
+  if (n === 1) {
     return false;
   }
   return !odd(n-1);
@@ -942,7 +908,7 @@ function even(n) {
 // good
 function factorial(n) {
   function factorialLoop(n, acc) {
-    if(n === 1) {
+    if (n === 1) {
       return acc;
     }
     else {
